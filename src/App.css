@@ -36,3 +36,37 @@
     transform: rotate(360deg);
   }
 }
+.btninbtn{
+  border: 1px solid black;
+  border-radius: 20px;
+}
+.register{
+  text-align: center;
+  justify-content: center;
+  border: 1px solid black;
+  background-color: rgb(235, 236, 236);
+  
+}
+.resinp{
+  margin: 15px;
+  width: 70%;
+  height: 40px;
+  border-radius: 15px;
+  background-color: rgb(255, 255, 255);
+}
+/* #btnregister{
+background: linear-gradient(90deg,rgb(1, 1, 255) , rgb(99, 58, 160));
+color: white;
+border-radius: 20px;
+} */
+#btnlogin{
+  background: none;
+  border-radius: 20px;
+  }
+/* .loginform{
+  display: none;
+} */
+.submitbtn{
+  width: 150px;
+  height: 30px;
+}
