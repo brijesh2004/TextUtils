@@ -53,16 +53,16 @@ export default function TextForm(props) {
                 {/* <label for="Mybox" className="form-label">Example textarea</label> */}
                 <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor:props.mode==='dark'?'light':'dark'}} id="mybox" rows="8" placeholder='Enter the text'></textarea>
             </div>
-            <button className="btn btn-success mx-2 my-2" onClick={handleUpClick}>Convert To uppercase</button>
-            <button className="btn btn-success mx-2 my-2" onClick={handleLowClick} >Convert to Lowercase</button>
-            <button className="btn btn-success mx-2 my-2" onClick={handleClearClick} >Clear Text</button>
-            <button className="btn btn-success mx-2 my-2" onClick={handleCopyClick} >Copy Text</button>
-            <button className="btn btn-success mx-2 my-2" onClick={handleExtraSpace} >Remove Extra Space</button>
+            <button disabled={text.length===0} className="btn btn-success mx-2 my-2" onClick={handleUpClick}>Convert To uppercase</button>
+            <button disabled={text.length===0} className="btn btn-success mx-2 my-2" onClick={handleLowClick} >Convert to Lowercase</button>
+            <button disabled={text.length===0} className="btn btn-success mx-2 my-2" onClick={handleClearClick} >Clear Text</button>
+            <button disabled={text.length===0} className="btn btn-success mx-2 my-2" onClick={handleCopyClick} >Copy Text</button>
+            <button disabled={text.length===0} className="btn btn-success mx-2 my-2" onClick={handleExtraSpace} >Remove Extra Space</button>
         </div>
         <div className="container my-4 bg-light" >
             <h2>Your Text Summary </h2>
-            <p>{text.split(" ").length} words and {text.length} characters</p>
-            <p>{0.008 * text.split("").length} Minutes Read </p>
+            <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
+            <p>{0.008 * text.split("").filter((element)=>{return element.length!==0}).length} Minutes Read </p>
             <h2>Preview</h2>
             <p>{text}</p>
         </div>

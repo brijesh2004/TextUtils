@@ -1,38 +1,42 @@
 import React , {useState} from 'react';
 
 
-export default function About() {
-    const [MyStyle , setMystyle] = useState({
-        color: 'back',
-        backgroundColor: 'white'
-    })
+export default function About(props) {
+    // const [MyStyle , setMystyle] = useState({
+    //     color: 'back',
+    //     backgroundColor: 'white'
+    // })
+    let MyStyle = {
+        color:props.mode !== 'dark'?'black':'white',
+        backgroundColor:props.mode!=='dark'?'white':'black'
+    }
 
- const [btntext , setBtnText]=useState("Enable Dark Mode");
-  const  toggleStyle = () =>{
-        if(MyStyle.color==='white'){
-            setMystyle({
-                color: 'black',
-                backgroundColor: 'white'
+//  const [btntext , setBtnText]=useState("Enable Dark Mode");
+//   const  toggleStyle = () =>{
+//         if(MyStyle.color==='white'){
+//             setMystyle({
+//                 color: 'black',
+//                 backgroundColor: 'white'
                
-            })
-            setBtnText("Enable Dark Mode");
-        }
-            else{
-                setMystyle({
-                    color: 'white',
-                    backgroundColor: 'black',
-                    border:'1px solid white'
-                })
-                setBtnText("Enable Light Mode");
-            }
-        }
+//             })
+//             setBtnText("Enable Dark Mode");
+//         }
+//             else{
+//                 setMystyle({
+//                     color: 'white',
+//                     backgroundColor: 'black',
+//                     border:'1px solid white'
+//                 })
+//                 setBtnText("Enable Light Mode");
+//             }
+//         }
 
     return (
             <div className="container" style={MyStyle}>
                 <h2>About us</h2>
                 <div className="accordion accordion-flush" id="accordionFlushExample">
                     <div className="accordion-item">
-                        <h2 className="accordion-header" id="flush-headingOne">
+                        <h2 className="accordion-header" id="flush-headingOne" style={MyStyle}>
                             <button className="accordion-button collapsed" style={MyStyle} type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                                 Accordion Item #1
                             </button>
@@ -64,9 +68,9 @@ export default function About() {
                 </div>
          
 
-            <div className="container my-3">
+            {/* <div className="container my-3">
                 <button onClick={toggleStyle} type="button" className="btn btn-primary ">{btntext}</button>
-            </div>
+            </div> */}
             </div>
     )
     }
